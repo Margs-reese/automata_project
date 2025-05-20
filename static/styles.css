@@ -350,7 +350,7 @@ body {
     font-family: "Inter", sans-serif;
     font-size: 12px;
     font-style: normal;
-    font-weight: 900;
+    font-weight: 700;
     color: #1E1E23; 
 }
 
@@ -358,15 +358,22 @@ body {
     border-radius: 12px; 
     background: #FFD667; 
     color: #1E1E23; 
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
 }
 
 #dfa-btn:active, #cfg-btn:active, #pda-btn:active {
-    /* Should be the same as hover/selected based on properties provided */
     border-radius: 12px;
     background: #FFD667;
     color: #1E1E23;
-    /* Add a slight effect to indicate click */
-    /* transform: scale(0.98); */
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
 }
 
 #result-container {
