@@ -1,0 +1,301 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* *, *::before, *::after {
+    box-sizing: border-box;
+    outline: 2px solid green;
+    background: #1E1E23;
+} */
+
+html, body {
+    height: 100%;
+    /* overflow-x: hidden; */
+    overflow-x: auto;
+    background-color: #1E1E23;
+    outline: 2px solid green;
+    color: white;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    grid-template-rows: 80px 1fr 50px;
+    grid-template-areas:
+    "header header header" 
+    ". main-content ."     
+    "footer footer footer";
+    gap: 0px;
+    min-height: 100vh;
+}
+.koulen-regular {
+  font-family: "Koulen", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.inter {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
+
+
+.header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* outline: white solid 1px; */
+    color: white;
+    padding: 0px 150px 0px 0px;
+}
+
+.header-title {
+    font-family: "Koulen", sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    color: white;
+    flex-shrink: 0;
+    margin-left: 150px; /*added margin*/
+} 
+
+.header-gap {
+    width: 741.24px; /* Explicit width for the gap */
+    flex-shrink: 0; /* Prevent the flexbox gap from shrinking */
+    flex-grow: 0; /* Prevents the flexbox gap from growing*/
+}
+
+/* DEFAULT select rejext btn style */
+#select-rejex-btn {
+    width: 120px;
+    height: 44px;
+    padding: 14px 47px;
+    border-radius: 10px;
+    background-color: #FFD667;
+    border: none;
+    cursor: pointer;
+    color: #1E1E23;
+    font-family: "Inter", sans-serif;
+    font-size: 14px; 
+    font-weight: 800;
+    box-sizing: border-box; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin: 19px 0px 19px 19px; 
+}
+/* DEFAULT select rejext btn style */
+
+/* HOVER STATE select rejext btn style */
+#select-rejex-btn:hover {
+    opacity: 0.4;
+    transition: opacity 0.5s ease-in-out;
+}
+/* HOVER STATE select rejext btn style */
+
+/* ON CLICK select rejext btn style */
+#select-rejex-btn:active {
+    opacity: 1;
+}
+/* ON CLICK select rejext btn style */
+
+
+/* --- visualization Layout  START --- */
+.main-content-wrapper {
+    grid-area: main-content; 
+    display: grid; 
+    grid-template-columns: 1fr; 
+    grid-template-rows: 500px 235px;
+    gap: 20px;
+    padding: 0 10px; 
+    box-sizing: border-box;
+    width: auto;
+    /* justify-self: center; */
+    overflow: visible;
+}
+
+.visualization-bg {
+    /* outline: 3px solid red; */
+    background-color: #2A252F; 
+    width: 1139px;
+    height: 500px; 
+    border-radius: 12px; 
+    box-sizing: border-box;
+    margin: 0 auto; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    /* padding-top: 15px; */
+    /* padding: top, rightm bottom, left */
+    padding: 15px; /* adjust the padding to change the height (modify it if its conflicting with the displayed visualization)*/
+    /* padding-bottom: 54px; */
+    /* padding-left: 14px; */
+    /* padding-right: 14px; */
+    overflow-y: hidden;
+}
+
+.visualization-canvas {
+    background-color: hsla(240, 8%, 13%, 0.4); 
+    width: 1111px;
+    height: 450px;
+    border-radius: 12px; 
+    color: white; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    flex-shrink: 1;  
+    max-width: 100%; 
+    margin-bottom: 10px;
+    align-self: center; 
+}
+
+#run-simulation-btn {
+    display: flex;
+    width: 167px;
+    height: 46px;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFD667; 
+    border: none;
+    border-radius: 12px; 
+    cursor: pointer;
+    box-sizing: border-box;
+    /* padding: top, right bottom, left */
+    margin: 19px 0px 19px 19px; 
+    margin-left: auto; /* Pushes button to the right */
+    flex-shrink: 0; /* Prevent button from shrinking */
+}
+
+.run-simulation-label {
+    display: flex;
+    width: 144px; 
+    justify-content: space-between; 
+    align-items: center; 
+    flex-shrink: 0; 
+    color: #2A252F;
+    font-family: "Inter", sans-serif; /* Add sans-serif as fallback */
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.run-simulation-label img {
+    display: block; /* Remove extra space below img */
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+/* HOVER STATE run simulation style */
+#run-simulation-btn:hover {
+    opacity: 0.4;
+    transition: opacity 0.5s ease-in-out;
+}
+/* HOVER STATE run simulation style */
+
+/* ON CLICK run simulation style */
+#run-simulation-btn:active {
+    opacity: 1;
+}
+/* ON CLICK run simulation style */
+/* --- visualization Layout  END --- */
+
+/* bottom section START */
+.bottom-section {
+    display: grid;
+    grid-template-columns: 475px 630px;
+    grid-template-rows: 1fr;
+    gap: 10px;
+    box-sizing: border-box;
+    width: calc(475px + 630px + 10px);
+    margin: 0 auto; 
+    outline: 2px solid blue
+}
+
+/* text input */
+.txt-input-area {
+    outline: 2px solid red;
+    background-color: white;
+    border-radius: 10px;
+    width: 475px; 
+    height: 235px; 
+    padding: 10px; 
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column; 
+    overflow: hidden; 
+}
+
+#pattern-input {
+    flex-grow: 1; 
+    border: none; 
+    outline: none;
+    background-color: transparent; 
+    color: #1E1E23; 
+    font-family: sans-serif;
+    font-size: 12px;
+    resize: none; 
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: hsla(0, 1%, 67%, 0.13);
+
+}
+
+#pattern-input::placeholder {
+    color: #aba9a9;
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+}
+/* text input */
+
+/* pattern-validation btn */
+#pattern-validation-btn {
+    margin-top: auto;
+    margin-left: auto; 
+    display: flex;
+    width: 180px;
+    height: 46px;
+    padding: 0px 0px;
+    justify-content: center;
+    align-items: center;
+    gap: 10 px;
+    color: #FFF; /* Text color */
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    background-color: #2A252F;
+    border: none;
+    border-radius: 8px; 
+    cursor: pointer;
+    box-sizing: border-box;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+/* HOVER STATE validation button style */
+#pattern-validation-btn:hover {
+    opacity: 0.8; /* Example hover opacity */
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* ON CLICK validation button style */
+#pattern-validation-btn:active {
+     opacity: 1; /* Return to full opacity */
+}
+
+/* pattern-validation btn */
+
+
+/* bottom section END */
