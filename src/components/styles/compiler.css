@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+    outline: 2px solid green;
+    background: #1E1E23;
+}
+
+html, body {
+    height: 100%;
+    overflow:hidden;
+}
+
+.koulen-regular {
+  font-family: "Koulen", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.inter {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    grid-template-rows: 80px 1fr 50px;
+    grid-template-areas:
+    "header header header" 
+    ". main-content ."     
+    "footer footer footer";
+    gap: 0px;
+}
+
+.header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: white solid 1px;
+    padding: 0px 150px 0px 0px;
+}
+
+.header-title {
+    font-family: "Koulen", sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    color: white;
+    flex-shrink: 0;
+    margin-left: 150px; /*added margin*/
+} 
+
+.header-gap {
+    width: 741.24px; /* Explicit width for the gap */
+    flex-shrink: 0; /* Prevent the flexbox gap from shrinking */
+    flex-grow: 0; /* Prevents the flexbox gap from growing*/
+}
+
+/* DEFAULT select rejext btn style */
+#select-rejex-btn {
+    width: 120px;
+    height: 44px;
+    padding: 14px 47px;
+    border-radius: 10px;
+    background-color: #FFD667;
+    border: none;
+    cursor: pointer;
+    color: #1E1E23;
+    font-family: "Inter", sans-serif;
+    font-size: 14px; 
+    font-weight: 800;
+    box-sizing: border-box; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+/* DEFAULT select rejext btn style */
+
+/* HOVER STATE select rejext btn style */
+#select-rejex-btn:hover {
+    opacity: 0.4;
+    transition: opacity 0.5s ease-in-out;
+}
+/* HOVER STATE select rejext btn style */
+
+/* ON CLICK select rejext btn style */
+#select-rejex-btn:active {
+    opacity: 1;
+}
+/* ON CLICK select rejext btn style */
+
+
