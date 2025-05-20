@@ -207,4 +207,55 @@ body {
     opacity: 1;
 }
 /* ON CLICK run simulation style */
+/* --- visualization Layout  END --- */
 
+/* bottom section START */
+.bottom-section {
+    display: grid;
+    grid-template-columns: 475px 630px;
+    grid-template-rows: 1fr;
+    gap: 10px;
+    box-sizing: border-box;
+    width: calc(475px + 630px + 10px);
+    margin: 0 auto; 
+    outline: 2px solid blue
+}
+
+/* text input */
+.txt-input-area {
+    outline: 2px solid red;
+    background-color: white;
+    border-radius: 10px;
+    width: 475px; 
+    height: 235px; 
+    padding: 10px; 
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column; 
+    position: relative;
+    overflow: hidden; 
+}
+
+#pattern-input {
+    flex-grow: 1; 
+    border: none;
+    border-radius: 8px;
+    outline: none; 
+    background-color: hsla(290, 14%, 92%, 0.314);
+    color: #1E1E23; 
+    font-family: sans-serif;
+    font-size: 12px; 
+    padding: 10px; 
+    resize: none; 
+    margin-bottom: 10px; 
+}
+
+#pattern-input::placeholder {
+    color: #aba9a9;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+}
+
+/* text input */
+
+/* bottom section END */
