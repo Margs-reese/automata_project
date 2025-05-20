@@ -13,9 +13,9 @@ html,
 body {
   height: 100%;
   /* overflow-x: hidden; */
-  overflow-x: auto;
+  /* overflow-x: auto; */
   background-color: #1e1e23;
-  outline: 2px solid green;
+  /* outline: 2px solid green; */
   color: white;
 }
 
@@ -25,7 +25,7 @@ body {
   grid-template-rows: 80px 1fr 50px;
   grid-template-areas:
     "header header header"
-    ". main-content ."
+    ". main-content ." 
     "footer footer footer";
   gap: 0px;
   min-height: 100vh;
@@ -65,16 +65,18 @@ body {
 }
 
 .header-gap {
-  width: 741.24px; /* Explicit width for the gap */
-  flex-shrink: 0; /* Prevent the flexbox gap from shrinking */
-  flex-grow: 0; /* Prevents the flexbox gap from growing*/
+  width: 741.24px; 
+  flex-shrink: 0;
+  flex-grow: 0;
 }
+
 
 /* DEFAULT select rejext btn style */
 #select-rejex-btn {
-  width: 120px;
+  width: auto;
+  min-width: 120px; 
   height: 44px;
-  padding: 14px 47px;
+  padding: 14px 20px;
   border-radius: 10px;
   background-color: #ffd667;
   border: none;
@@ -89,7 +91,8 @@ body {
   align-items: center;
   white-space: nowrap;
   flex-shrink: 0;
-  margin: 19px 0px 19px 19px;
+  /* margin: 19px 0px 19px 19px; Original margin */
+  margin: 19px 0; /* Adjust margin */
 }
 /* DEFAULT select rejext btn style */
 
@@ -111,38 +114,36 @@ body {
   grid-area: main-content;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 500px 235px;
+  grid-template-rows: 500px 235px; 
   gap: 20px;
   padding: 0 10px;
   box-sizing: border-box;
-  width: auto;
-  /* justify-self: center; */
+  width: 100%; 
+  max-width: 1139px;
+  justify-self: center; 
   overflow: visible;
 }
 
 .visualization-bg {
   /* outline: 3px solid red; */
   background-color: #2a252f;
-  width: 1139px;
+  /* width: 1139px; /* Remove fixed width */
+  width: 100%; /* Use 100% of parent */
   height: 500px;
   border-radius: 12px;
   box-sizing: border-box;
-  margin: 0 auto;
+  margin: 0 auto; 
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* padding-top: 15px; */
-  /* padding: top, rightm bottom, left */
-  padding: 15px; /* adjust the padding to change the height (modify it if its conflicting with the displayed visualization)*/
-  /* padding-bottom: 54px; */
-  /* padding-left: 14px; */
-  /* padding-right: 14px; */
+  padding: 15px;
   overflow-y: hidden;
 }
 
 .visualization-canvas {
   background-color: hsla(240, 8%, 13%, 0.4);
-  width: 1111px;
+  /* width: 1111px; /* Remove fixed width */
+  width: 100%; 
   height: 450px;
   border-radius: 12px;
   color: white;
@@ -151,9 +152,10 @@ body {
   align-items: center;
   box-sizing: border-box;
   flex-shrink: 1;
-  max-width: 100%;
+  max-width: 100%; 
   margin-bottom: 10px;
   align-self: center;
+  overflow: hidden;
 }
 
 #run-simulation-btn {
@@ -168,9 +170,10 @@ body {
   cursor: pointer;
   box-sizing: border-box;
   /* padding: top, right bottom, left */
-  margin: 19px 0px 19px 19px;
-  margin-left: auto; /* Pushes button to the right */
-  flex-shrink: 0; /* Prevent button from shrinking */
+  /* margin: 19px 0px 19px 19px; Original margin */
+  margin: 19px 0 0 19px; 
+  margin-left: auto;
+  flex-shrink: 0;
 }
 
 .run-simulation-label {
@@ -205,19 +208,19 @@ body {
 #run-simulation-btn:active {
   opacity: 1;
 }
-/* ON CLICK run simulation style */
 /* --- visualization Layout  END --- */
 
 /* bottom section START */
 .bottom-section {
   display: grid;
-  grid-template-columns: 475px 630px;
+  grid-template-columns: 475px 630px; /* Original columns */
   grid-template-rows: 1fr;
   gap: 10px;
   box-sizing: border-box;
-  /* width: calc(475px + 630px + 10px); */
-  width: 1139px;
-  margin: 0 auto;
+  /* width: calc(475px + 630px + 10px); */ /* Remove fixed width calculation */
+  width: 100%; 
+  max-width: 1139px; 
+  margin: 0 auto; 
   /* outline: 2px solid blue; */
 }
 
@@ -226,7 +229,8 @@ body {
   /* outline: 2px solid red; */
   background-color: white;
   border-radius: 10px;
-  width: 475px;
+  /* width: 475px; /* Remove fixed width */
+  width: 100%; /* Use 100% of its grid area */
   height: 235px;
   padding: 10px;
   box-sizing: border-box;
@@ -280,7 +284,7 @@ body {
   border-radius: 8px;
   cursor: pointer;
   box-sizing: border-box;
-  flex-shrink: 0; /* Prevent shrinking */
+  flex-shrink: 0; 
 }
 
 /* HOVER STATE validation button style */
@@ -300,34 +304,38 @@ body {
 .bottom-right-section {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 45px 10px 174px auto;
+    grid-template-rows: auto auto auto;
+    gap: 10px; /* Added gap */
     box-sizing: border-box;
-    width: 630px;
+    /* width: 630px; /* Remove fixed width */
+    width: 100%; 
+    margin: 0; 
 }
 
 .selection-result-container{
     display: flex;
-    width: -15px;
-    height: 44px; 
-    align-items: flex-start; /* Align items to the top */
+    /* width: -15px; */ /* This width is invalid, remove it */
+    width: 100%; 
+    height: auto; 
+    align-items: flex-start; 
     gap: 15px; 
     flex-shrink: 0;
     background-color: transparent; 
-    margin: 0 auto; 
     box-sizing: border-box;
+    flex-wrap: wrap; 
 }
 
 #dfa-btn, #cfg-btn, #pda-btn {
     display: flex;
     width: 95px;
     height: 44px;
-    padding: 14px 47px;
+    padding: 14px 20px; /* Adjusted padding */
     justify-content: center;
     align-items: center;
     gap: 10px;
     flex-shrink: 0;
     box-sizing: border-box; 
-    margin: 0 auto;
+    margin: 0; /* Remove margin auto */
 
     /* Default button styles */
     border-radius: 10px;
@@ -379,7 +387,9 @@ body {
 
 #result-container {
     display: flex;
-    width: 325px;
+    width: auto;
+    flex-grow: 1; 
+    min-width: 200px; 
     height: 44px;
     padding: 9px 18px;
     align-items: center; 
@@ -410,13 +420,14 @@ body {
     line-height: normal;
     white-space: nowrap; 
     flex-shrink: 0; 
-    display: none; /* Initially hidden (not yet toggled) */
+    /* * Initially hidden (not yet toggled)  */
+    display: none; /* Keep this handled by JS */
 }
 
 /* Valid label styles */
 #valid-label {
     width: 55px;
-    height: 20px;
+    height: 10px;
     background: #B1ECD0; 
     color: #15525A; 
 }
@@ -424,19 +435,20 @@ body {
 /* Invalid label styles */
 #invalid-label {
     width: 55px;
-    height: 20px;
+    height: 10px;
     background: #ECB1B1; 
     color: #5A153F; 
 }
-
 /* CFG, DFA, PDA & Result styles END*/
 
 
 /* Regex used container start*/
 .regex-used-container {
     display: flex;
-    width: 655px; 
-    height: 177px; /* Specified height */
+    /* width: 655px;  /* Remove fixed width */
+    width: 100%; 
+    height: auto; 
+    min-height: 177px;
     padding: 25px 13px 25px 13px; 
     flex-direction: column;
     align-items: center; 
@@ -444,21 +456,12 @@ body {
     flex-shrink: 0;
     border-radius: 12px; 
     background: #2A252F; 
-    margin: 15px auto;
+    /* margin: 15px auto; */ 
+    margin-top: 8px; 
     box-sizing: border-box;
-    overflow: hidden; /* Hide content overflow if text is too long */
+    overflow: hidden; 
 }
 
-/* Inner container for header and content layout */
-.regex-content-inner {
-    display: flex; 
-    width: 598.875px; 
-    flex-direction: column;
-    align-items: flex-start; 
-    gap: 15px; 
-    /* flex-shrink: 0; /* Prevent shrinking */
-    box-sizing: border-box;
-}
 
 /* Header content layout and typography */
 .regex-header {
@@ -476,16 +479,395 @@ body {
 
 /* Content layout and typography */
 .regex-content {
-    color: #FFF; /* Specified color */
-    font-family: Inter, sans-serif; /* Specified font */
-    font-size: 14px; /* Specified font size */
-    font-style: normal; /* Specified font style */
-    font-weight: 400; /* Specified font weight */
-    line-height: 26px; /* Specified line height */
+    color: #FFF; 
+    font-family: Inter, sans-serif; 
+    font-size: 14px; 
+    font-style: normal;
+    font-weight: 400; 
+    line-height: 26px; 
     word-break: break-word; 
     overflow-wrap: break-word; 
     white-space: pre-wrap; 
     letter-spacing: 1.2px;
+    width: 100%; 
+}
+/* Regex used container end*/
+
+
+/* RESPONSIVE LAYOUT START */
+@media (max-width: 1200px) {
+    body {
+        grid-template-columns: 20px 1fr 20px;
+    }
+
+    .header {
+      padding: 0 10px;
+    }
+
+    .header-title {
+        font-size: 28px;
+        margin-left: 0; 
+    }
+
+    #select-rejex-btn {
+        font-size: 12px; /* Slightly smaller button text */
+        padding: 10px 15px; 
+        /* Allow squishing */
+        flex-shrink: 1; 
+        width: auto;   
+        min-width: 90px;
+    }
+
+    .main-content-wrapper {
+        max-width: 960px;
+        grid-template-rows: auto auto; 
+        gap: 30px;
+    }
+
+    .visualization-bg {
+        height: auto;
+        min-height: 400px; 
+    }
+
+    .visualization-canvas {
+        height: 350px; 
+    }
+
+    #run-simulation-btn {
+        /* Allow squishing */
+        flex-shrink: 1; 
+        width: auto;   
+        min-width: 140px; 
+        padding: 10px 15px;
+        margin-top: 10px;
+    }
+
+    .bottom-section {
+        grid-template-columns: 1fr; 
+        grid-template-rows: auto auto; 
+        gap: 20px;
+        max-width: 960px; 
+    }
+
+    .txt-input-area {
+        height: 200px; 
+        }
+
+    .bottom-right-section {
+        grid-template-rows: auto auto auto;
+        gap: 15px;
+    }
+
+    .selection-result-container {
+        justify-content: space-between;
+        flex-wrap: wrap; 
+    }
+    
+    #dfa-btn, #cfg-btn, #pda-btn {
+        /* Allow squishing */
+        flex-shrink: 1; 
+        width: auto; 
+        min-width: 70px; 
+        padding: 10px 15px; 
+    }
+
+    #result-container {
+        flex-shrink: 1; 
+        min-width: 150px; 
+        flex-grow: 1; 
+    }
+
+    .regex-used-container {
+         min-height: 150px;
+         padding: 20px 10px; 
+    }
+
+    .regex-header {
+        font-size: 15px; 
+    }
+
+    .regex-content {
+        font-size: 13px;
+        line-height: 22px;
+        letter-spacing: 1px; 
+    }
 }
 
-/* Regex used container end*/
+
+/* Small screens (e.g., phones, smaller tablets) */
+@media (max-width: 768px) {
+    body {
+        grid-template-columns: 10px 1fr 10px; 
+        grid-template-rows: auto 1fr auto; 
+    }
+
+    .header {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        height: auto;
+    }
+
+    .header-title {
+        font-size: 24px; 
+        margin-bottom: 10px; 
+        margin-right: 0;
+    }
+
+    .header-gap {
+        display: none;
+    }
+
+    #select-rejex-btn {
+        margin: 0;
+        width: 100%; 
+        max-width: 200px; 
+        flex-shrink: 1;
+        min-width: 80px;
+    }
+
+    .main-content-wrapper {
+        gap: 15px; 
+        padding: 0 5px; 
+        max-width: 100%; 
+    }
+
+    .visualization-bg {
+        min-height: 300px;
+        padding: 10px; 
+    }
+
+    .visualization-canvas {
+        height: 250px; 
+        padding: 5px; 
+    }
+    
+    #run-simulation-btn {
+        width: 100%;
+        max-width: 200px; 
+        margin-left: auto; 
+        margin-right: auto;
+        margin-top: 10px; 
+        flex-shrink: 1;
+        min-width: 120px;
+    }
+
+    .run-simulation-label {
+        width: auto; 
+        gap: 5px;
+        font-size: 14px; 
+    }
+
+    .run-simulation-label img {
+        width: 14px;
+        height: 14px;
+    }
+
+    .bottom-section {
+        gap: 15px;
+        max-width: 100%; 
+    }
+
+    .txt-input-area {
+        height: 180px;
+        padding: 8px; 
+    }
+
+    #pattern-input {
+        padding: 8px;
+        font-size: 11px; 
+    }
+
+    #pattern-validation-btn {
+        width: 120px; 
+        height: 40px; 
+        font-size: 12px; 
+        /* Allow squishing */
+         flex-shrink: 1;
+         min-width: 100px;
+         width: auto;
+         padding: 0 10px;
+    }
+
+    .bottom-right-section {
+        gap: 10px;
+    }
+
+    .selection-result-container {
+        flex-direction: column; 
+        align-items: stretch;
+        gap: 8px; 
+    }
+
+    #dfa-btn, #cfg-btn, #pda-btn {
+        width: 100%; 
+        max-width: none; 
+        padding: 10px 15px; 
+        font-size: 11px;
+        flex-shrink: 1;
+        min-width: 60px;
+    }
+
+    #result-container {
+        width: 100%; 
+        min-width: 100px;
+        padding: 8px 12px; 
+        font-size: 12px; 
+        justify-content: space-between; 
+        /* Allow squishing */
+        flex-shrink: 1;
+        min-width: 80px; 
+    }
+
+    .regex-used-container {
+        min-height: 120px;
+        padding: 15px 8px; 
+    }
+
+    .regex-header {
+        font-size: 14px; 
+    }
+
+    .regex-content {
+        font-size: 12px; 
+        line-height: 20px;
+        letter-spacing: 0.8px; 
+    }
+
+}
+
+
+/* Extra small screens (e.g., older phones, very small viewports) */
+@media (max-width: 480px) {
+    body {
+        grid-template-columns: 5px 1fr 5px; 
+    }
+
+    .header {
+        padding: 5px;
+    }
+
+    .header-title {
+        font-size: 20px; 
+        margin-bottom: 5px;
+    }
+
+    #select-rejex-btn {
+        font-size: 10px;
+        padding: 8px 10px; 
+        /* Allow squishing */
+        flex-shrink: 1;
+        min-width: 70px; 
+    }
+
+    .main-content-wrapper {
+        gap: 10px; 
+        padding: 0 2px; 
+    }
+
+    .visualization-bg {
+         min-height: 250px;
+         padding: 5px; 
+    }
+
+    .visualization-canvas {
+        height: 200px; 
+        padding: 2px;
+    }
+
+    #run-simulation-btn {
+        max-width: 150px; 
+        margin-top: 5px; 
+        /* Allow squishing */
+        flex-shrink: 1;
+        min-width: 100px;
+        padding: 8px 10px; 
+    }
+    
+    .run-simulation-label {
+         font-size: 12px; 
+         gap: 3px;
+    }
+
+    .run-simulation-label img {
+        width: 12px;
+        height: 12px;
+    }
+
+
+    .bottom-section {
+        gap: 10px;
+    }
+
+    .txt-input-area {
+        height: 150px; 
+        padding: 5px;
+    }
+
+    #pattern-input {
+         padding: 5px; 
+         font-size: 10px; 
+    }
+
+    #pattern-validation-btn {
+        width: 100px;
+        height: 35px; 
+        font-size: 10px; 
+         /* Allow squishing */
+         flex-shrink: 1;
+         min-width: 80px; 
+         width: auto;
+         padding: 0 8px;
+    }
+
+    .bottom-right-section {
+        gap: 8px;
+    }
+
+     .selection-result-container {
+        gap: 6px;
+    }
+
+    #dfa-btn, #cfg-btn, #pda-btn {
+         padding: 8px 10px; 
+         font-size: 10px; 
+         /* Allow squishing */
+         flex-shrink: 1;
+         min-width: 50px; 
+         width: auto; 
+    }
+
+    #result-container {
+         padding: 6px 10px; 
+         font-size: 10px; 
+         gap: 8px;
+        flex-shrink: 1;
+        min-width: 60px;
+    }
+
+    .result-label {
+        padding: 4px; 
+        font-size: 8px; 
+        width: 40px; 
+        height: 16px;
+    }
+
+    .regex-used-container {
+        min-height: 100px;
+        padding: 10px 5px; 
+    }
+
+    .regex-header {
+        font-size: 12px; 
+    }
+
+    .regex-content {
+        font-size: 10px; 
+        line-height: 18px;
+        letter-spacing: 0.5px; 
+    }
+
+}
+
+/* RESPONSIVE LAYOUT END */
