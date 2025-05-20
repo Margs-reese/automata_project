@@ -36,7 +36,11 @@ Then open the https link: http://127.0.0.1:8000
 
 # Frontend Installations
 
+# Viewing the website (temp)
 
+**Temporarily use the Live Server plugin:** https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer 
+> Go to the compiler.html file under src/components/pages/compiler.html
 
+> Right-click the .html file and select Open with Live Server
 
 
