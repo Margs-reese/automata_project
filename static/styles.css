@@ -222,7 +222,7 @@ body {
 
 /* text input */
 .txt-input-area {
-  outline: 2px solid red;
+  /* outline: 2px solid red; */
   background-color: white;
   border-radius: 10px;
   width: 475px;
@@ -245,7 +245,7 @@ body {
   resize: none;
   padding: 10px;
   margin-bottom: 10px;
-  border-radius: 10px;
+  border-radius: 8px;
   background-color: hsla(0, 1%, 67%, 0.13);
 }
 
@@ -262,7 +262,7 @@ body {
   margin-top: auto;
   margin-left: auto;
   display: flex;
-  width: 180px;
+  width: 150px;
   height: 46px;
   padding: 0px 0px;
   justify-content: center;
@@ -272,7 +272,7 @@ body {
   font-family: Inter, sans-serif;
   font-size: 14px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
   line-height: normal;
   background-color: #2a252f;
   border: none;
@@ -284,15 +284,142 @@ body {
 
 /* HOVER STATE validation button style */
 #pattern-validation-btn:hover {
-  opacity: 0.8; /* Example hover opacity */
+  opacity: 0.8;
   transition: opacity 0.2s ease-in-out;
 }
 
 /* ON CLICK validation button style */
 #pattern-validation-btn:active {
-  opacity: 1; /* Return to full opacity */
+  opacity: 1; 
+}
+/* pattern-validation btn */
+/* bottom section END */
+
+/* CFG, DFA, PDA & Results styles START*/
+.bottom-right-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 44px 10px 174px auto;
+    gap: 0;
+    box-sizing: border-box;
+    width: 630px;
 }
 
-/* pattern-validation btn */
+.selection-result-container{
+    display: flex;
+    width: 628px;
+    height: 44px; 
+    align-items: flex-start; /* Align items to the top */
+    gap: 15px; 
+    flex-shrink: 0;
+    background-color: transparent; 
+    margin: 0 auto; 
+    box-sizing: border-box;
+}
 
-/* bottom section END */
+#dfa-btn, #cfg-btn, #pda-btn {
+    display: flex;
+    width: 95px;
+    height: 44px;
+    padding: 14px 47px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    box-sizing: border-box; 
+
+    /* Default button styles */
+    border-radius: 10px;
+    background: #373746; 
+    color: #FFF;
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    border: none;
+    cursor: pointer;
+
+    transition: background 0.2s ease-in-out, color 0.2s ease-in-out, border-radius 0.2s ease-in-out;
+}
+
+#dfa-btn:hover, #cfg-btn:hover, #pda-btn:hover {
+    border-radius: 12px; 
+    background: #FFD667; 
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 900;
+    color: #1E1E23; 
+}
+
+#dfa-btn.selected, #cfg-btn.selected, #pda-btn.selected {
+    border-radius: 12px; 
+    background: #FFD667; 
+    color: #1E1E23; 
+}
+
+#dfa-btn:active, #cfg-btn:active, #pda-btn:active {
+    /* Should be the same as hover/selected based on properties provided */
+    border-radius: 12px;
+    background: #FFD667;
+    color: #1E1E23;
+    /* Add a slight effect to indicate click */
+    /* transform: scale(0.98); */
+}
+
+#result-container {
+    display: flex;
+    width: 298px;
+    height: 44px;
+    padding: 9px 18px;
+    align-items: center; 
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #373746; 
+    color: white; 
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 700; 
+    box-sizing: border-box;
+}
+
+/* Won't show up unless toggled */
+.result-label {
+     /* Common properties for both VALID and INVALID labels */
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack content vertically (though they only have text) */
+    justify-content: center;
+    align-items: center;
+    padding: 8px; 
+    border-radius: 4px;
+    box-shadow: 2px 4px 5px 0px rgba(0, 0, 0, 0.25);
+    font-family: Inter, sans-serif;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    white-space: nowrap; 
+    flex-shrink: 0; 
+    display: none; /* Initially hidden (not yet toggled) */
+}
+
+/* Valid label styles */
+#valid-label {
+    width: 55px;
+    height: 20px;
+    background: #B1ECD0; 
+    color: #15525A; 
+}
+
+/* Invalid label styles */
+#invalid-label {
+    width: 55px;
+    height: 20px;
+    background: #ECB1B1; 
+    color: #5A153F; 
+}
+
+/* CFG, DFA, PDA & Result styles END*/

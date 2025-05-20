@@ -8,20 +8,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,800;1,14..32,800&display=swap"
-      rel="stylesheet"
-    />
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,800;1,14..32,800&display=swap" rel="stylesheet"/>
 
     <!-- Koulen regular -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Koulen&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="../static/styles.css" />
-
+    
     <title>Automata Simulator</title>
   </head>
   <body>
@@ -65,19 +60,36 @@
         <!-- text-input START -->
         <div class="txt-input-area">
           <!-- text area start -->
-          <textarea
-            name="pattern-input"
-            id="pattern-input"
-            placeholder="Input a pattern here..."
-          ></textarea>
+          <textarea name="pattern-input" id="pattern-input" placeholder="Input a pattern here..."></textarea>
           <!-- text area end -->
           <button id="pattern-validation-btn">Validate Pattern</button>
         </div>
         <!-- text-input END -->
-      </div>
-      <!-- text input | choose language | print result | pattern used SECTION  -->
+        
 
-      <!-- MAIN CONTENT WRAPPER DIV TAG -->
+        <!-- DFA, CFG, PDA & RESULT START -->
+        <div class="bottom-right-section">
+          <div class="selection-result-container">
+              <button id="dfa-btn">DFA</button>
+              <button id="cfg-btn">CFG</button>
+              <button id="pda-btn">PDA</button>
+            <div id="result-container">
+              Result:
+              <!-- valid/invalid result toggle: pattern-validation.js -->
+              <span id="valid-label" class="result-label"> VALID </span>
+              <span id="invalid-label" class="result-label"> INVALID </span>
+            </div>
+          </div>
+        </div>
+        <!-- DFA, CFG, PDA & RESULT END -->
+
+        <!-- text input | choose language | print result | pattern used SECTION  -->
+         
+       <!-- Bottom section DIV -->
+      </div>
+      <!-- Bottom section DIV -->
+
+    <!-- MAIN CONTENT WRAPPER DIV TAG -->
     </div>
     <!-- MAIN CONTENT WRAPPER DIV TAG -->
 
