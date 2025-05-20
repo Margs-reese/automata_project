@@ -215,9 +215,10 @@ body {
   grid-template-rows: 1fr;
   gap: 10px;
   box-sizing: border-box;
-  width: calc(475px + 630px + 10px);
+  /* width: calc(475px + 630px + 10px); */
+  width: 1139px;
   margin: 0 auto;
-  outline: 2px solid blue;
+  /* outline: 2px solid blue; */
 }
 
 /* text input */
@@ -299,15 +300,14 @@ body {
 .bottom-right-section {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 44px 10px 174px auto;
-    gap: 0;
+    grid-template-rows: 45px 10px 174px auto;
     box-sizing: border-box;
     width: 630px;
 }
 
 .selection-result-container{
     display: flex;
-    width: 628px;
+    width: -15px;
     height: 44px; 
     align-items: flex-start; /* Align items to the top */
     gap: 15px; 
@@ -327,6 +327,7 @@ body {
     gap: 10px;
     flex-shrink: 0;
     box-sizing: border-box; 
+    margin: 0 auto;
 
     /* Default button styles */
     border-radius: 10px;
@@ -378,7 +379,7 @@ body {
 
 #result-container {
     display: flex;
-    width: 298px;
+    width: 325px;
     height: 44px;
     padding: 9px 18px;
     align-items: center; 
@@ -395,9 +396,8 @@ body {
 
 /* Won't show up unless toggled */
 .result-label {
-     /* Common properties for both VALID and INVALID labels */
     display: flex; /* Use flexbox to center content */
-    flex-direction: column; /* Stack content vertically (though they only have text) */
+    flex-direction: column; 
     justify-content: center;
     align-items: center;
     padding: 8px; 
@@ -430,3 +430,62 @@ body {
 }
 
 /* CFG, DFA, PDA & Result styles END*/
+
+
+/* Regex used container start*/
+.regex-used-container {
+    display: flex;
+    width: 655px; 
+    height: 177px; /* Specified height */
+    padding: 25px 13px 25px 13px; 
+    flex-direction: column;
+    align-items: center; 
+    gap: 10px; 
+    flex-shrink: 0;
+    border-radius: 12px; 
+    background: #2A252F; 
+    margin: 15px auto;
+    box-sizing: border-box;
+    overflow: hidden; /* Hide content overflow if text is too long */
+}
+
+/* Inner container for header and content layout */
+.regex-content-inner {
+    display: flex; 
+    width: 598.875px; 
+    flex-direction: column;
+    align-items: flex-start; 
+    gap: 15px; 
+    /* flex-shrink: 0; /* Prevent shrinking */
+    box-sizing: border-box;
+}
+
+/* Header content layout and typography */
+.regex-header {
+    display: flex; 
+    align-items: center; 
+    align-self: stretch;
+    color: #FFF;
+    font-family: Inter, sans-serif;
+    font-size: 16px; 
+    font-style: normal;
+    font-weight: 700; 
+    line-height: normal;
+    margin-bottom: 5px;
+}
+
+/* Content layout and typography */
+.regex-content {
+    color: #FFF; /* Specified color */
+    font-family: Inter, sans-serif; /* Specified font */
+    font-size: 14px; /* Specified font size */
+    font-style: normal; /* Specified font style */
+    font-weight: 400; /* Specified font weight */
+    line-height: 26px; /* Specified line height */
+    word-break: break-word; 
+    overflow-wrap: break-word; 
+    white-space: pre-wrap; 
+    letter-spacing: 1.2px;
+}
+
+/* Regex used container end*/
