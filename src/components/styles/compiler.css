@@ -232,30 +232,70 @@ body {
     box-sizing: border-box;
     display: flex;
     flex-direction: column; 
-    position: relative;
     overflow: hidden; 
 }
 
 #pattern-input {
     flex-grow: 1; 
-    border: none;
-    border-radius: 8px;
-    outline: none; 
-    background-color: hsla(290, 14%, 92%, 0.314);
+    border: none; 
+    outline: none;
+    background-color: transparent; 
     color: #1E1E23; 
     font-family: sans-serif;
-    font-size: 12px; 
-    padding: 10px; 
+    font-size: 12px;
     resize: none; 
-    margin-bottom: 10px; 
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: hsla(0, 1%, 67%, 0.13);
+
 }
 
 #pattern-input::placeholder {
     color: #aba9a9;
     font-family: "Inter", sans-serif;
+    font-size: 12px;
     font-weight: 500;
 }
-
 /* text input */
+
+/* pattern-validation btn */
+#pattern-validation-btn {
+    margin-top: auto;
+    margin-left: auto; 
+    display: flex;
+    width: 180px;
+    height: 46px;
+    padding: 0px 0px;
+    justify-content: center;
+    align-items: center;
+    gap: 10 px;
+    color: #FFF; /* Text color */
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    background-color: #2A252F;
+    border: none;
+    border-radius: 8px; 
+    cursor: pointer;
+    box-sizing: border-box;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+/* HOVER STATE validation button style */
+#pattern-validation-btn:hover {
+    opacity: 0.8; /* Example hover opacity */
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* ON CLICK validation button style */
+#pattern-validation-btn:active {
+     opacity: 1; /* Return to full opacity */
+}
+
+/* pattern-validation btn */
+
 
 /* bottom section END */
