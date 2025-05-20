@@ -1,6 +1,17 @@
 # Ignore Python virtual environments
+**/.venv/
 .venv/
 backend/.venv/
+*/.venv/
+venv/
+VENV/
+**/venv/
+venv/
+backend/venv/
+*/.venv/
+*/venv/
+*/VENV/
+
 
 # Ignore Python cache files
 __pycache__/
