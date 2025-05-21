@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
         option1.addEventListener('click', function () {
             // Handle selection of option 1
             console.log('Regex option selected: {a, b}');
-            dropdownTrigger.textContent = 'Selected: {a, b}'; // Update button text
+            dropdownTrigger.textContent = 'Selected Regex: {a, b}'; // Update button text
             // Update regex content div
             regexContentDiv.textContent = '(aa+bb)(aba+bab+bbb)(a+b)*(aa+bb)(aa+bb)*(ab*ab*a)(ab*ab*a)*(bbb+aaa)(a+b)*';
             closeDropdown(); // Close dropdown
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
         option2.addEventListener('click', function () {
             // Handle selection of option 2
             console.log('Regex option selected: {1, 0}');
-            dropdownTrigger.textContent = 'Selected: {1, 0}'; // Update button text
+            dropdownTrigger.textContent = 'Selected Regex: {1, 0}'; // Update button text
             // Update regex content div
             regexContentDiv.textContent = '(1*01*01*)(11+00)(10+01)*(1+0)(11+00)(1+0+11+00+101+111+000)(11+00)*(10*10*1)(11+00)*';
             closeDropdown(); // Close dropdown

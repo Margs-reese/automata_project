@@ -81,7 +81,7 @@ body {
 /* Dropdown container styles */
 #select-rejex-btn {
   width: auto; /* Make width auto to allow padding to define size */
-  min-width: 120px; 
+  min-width: 245px; 
   height: 44px;
   padding: 14px 20px;
   border-radius: 10px;
@@ -125,20 +125,19 @@ body {
 
 /* Styles for the dropdown content */
 .dropdown-content {
-    display: none; /* Hidden by default */
+    display: none; 
     position: absolute;
-    background-color: #373746; /* Dark background */
-    min-width: 160px; /* Minimum width */
+    background-color: #373746; 
+    min-width: 245px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1; /* Sit on top */
+    z-index: 1; 
     border-radius: 10px;
-    overflow: hidden; /* Hide overflowing content */
-    top: 100%; /* Position below the trigger */
-    left: 0; /* Align to the left of the trigger */
-    margin-top: 5px; /* Small gap between trigger and content */
-    /* Ensure content width adjusts if needed */
+    overflow: hidden;
+    top: 100%; 
+    left: 0; 
+    margin-top: 5px; 
     box-sizing: border-box;
-    width: 100%; /* Match width of the trigger */
+    width: 245px; 
 }
 
 /* Styles for the dropdown options (buttons inside the content) */
