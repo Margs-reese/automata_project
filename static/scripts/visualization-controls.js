@@ -8,6 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const visualizationCanvas = document.querySelector('.visualization-canvas');
     const regexContentDiv = document.getElementById('regex-content');
     const allVisualizationButtons = document.querySelectorAll('.selection-result-container button');
+    const vizCanvas = document.querySelector(".visualization-canvas");
+    const content = document.getElementById("visualization-content");
+    let scale = 1;
+    const scaleStep = 0.1;
+    const minScale = 0.2;
+    const maxScale = 3;
+
+    
 
     function handleButtonClick(clickedButton) {
         allVisualizationButtons.forEach(btn => {
@@ -104,4 +112,72 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         console.error('PDA button not found.');
     }
+
+ // Double-click to toggle fullscreen
+  vizCanvas.addEventListener("dblclick", function () {
+    vizCanvas.classList.toggle("fullscreen");
+    // Reset zoom and pan when exiting fullscreen
+    if (!vizCanvas.classList.contains("fullscreen")) {
+      scale = 1;
+      content.style.transform = `scale(${scale}) translate(0px, 0px)`;
+      document.body.style.overflow = "";
+      content.dataset.panX = "0";
+      content.dataset.panY = "0";
+    } else {
+      document.body.style.overflow = "hidden";
+    }
+  });
+
+  // Zoom only when in fullscreen
+  vizCanvas.addEventListener("wheel", function (e) {
+    if (!vizCanvas.classList.contains("fullscreen")) return;
+    e.preventDefault();
+    if (e.deltaY < 0) {
+      // Zoom in
+      scale = Math.min(maxScale, scale + scaleStep);
+    } else {
+      // Zoom out
+      scale = Math.max(minScale, scale - scaleStep);
+    }
+    updateTransform();
+  });
+
+  // Drag-to-pan functionality
+  let isDragging = false;
+  let startX, startY, panX = 0, panY = 0;
+
+  content.addEventListener("mousedown", function (e) {
+    if (!vizCanvas.classList.contains("fullscreen") || scale === 1) return;
+    isDragging = true;
+    startX = e.clientX - panX;
+    startY = e.clientY - panY;
+    content.style.cursor = "grabbing";
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!isDragging) return;
+    panX = e.clientX - startX;
+    panY = e.clientY - startY;
+    updateTransform();
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (isDragging) {
+      isDragging = false;
+      content.style.cursor = "grab";
+    }
+  });
+
+  function updateTransform() {
+    content.style.transform = `scale(${scale}) translate(${panX / scale}px, ${panY / scale}px)`;
+    content.dataset.panX = panX;
+    content.dataset.panY = panY;
+  }
+
+  // Reset pan when zoom resets
+  vizCanvas.addEventListener("dblclick", function () {
+    panX = 0;
+    panY = 0;
+    updateTransform();
+  });
 });
