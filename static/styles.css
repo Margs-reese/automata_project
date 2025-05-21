@@ -937,3 +937,31 @@ body {
 }
 
 /* RESPONSIVE LAYOUT END */
+
+/* Add these styles for DFA animation */
+.highlight-node {
+  fill: #007bff !important;
+  stroke: #0056b3 !important;
+  stroke-width: 3px !important;
+  transition: all 0.5s ease-in-out;
+}
+
+.highlight-edge {
+  stroke: #007bff !important;
+  stroke-width: 3px !important;
+  transition: all 0.5s ease-in-out;
+}
+
+.accept-state {
+  fill: #28a745 !important;
+  stroke: #1e7e34 !important;
+  stroke-width: 3px !important;
+  transition: all 0.5s ease-in-out;
+}
+
+/* Target the circle element within the node */
+.accept-state circle {
+  fill: #ff69b4 !important;  /* Pink for final node circle */
+  stroke: #ff1493 !important;
+  stroke-width: 3px !important;
+}
