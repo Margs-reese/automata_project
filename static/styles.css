@@ -61,20 +61,27 @@ body {
   letter-spacing: 0.5px;
   color: white;
   flex-shrink: 0;
-  margin-left: 150px; /*added margin*/
+  margin-left: 150px;
 }
 
 .header-gap {
-  width: 741.24px; 
+  width: 734.24px; 
   flex-shrink: 0;
   flex-grow: 0;
 }
 
-
-/* DEFAULT select rejext btn style */
+/* Dropdown container styles */
+.dropdown-container {
+    position: relative; 
+    display: inline-block; 
+    flex-shrink: 0;
+    margin: 19px 0px 19px 19px; 
+    box-sizing: border-box;
+}
+/* Dropdown container styles */
 #select-rejex-btn {
-  width: auto;
-  min-width: 120px; 
+  width: auto; /* Make width auto to allow padding to define size */
+  min-width: 245px; 
   height: 44px;
   padding: 14px 20px;
   border-radius: 10px;
@@ -91,8 +98,7 @@ body {
   align-items: center;
   white-space: nowrap;
   flex-shrink: 0;
-  /* margin: 19px 0px 19px 19px; Original margin */
-  margin: 19px 0; /* Adjust margin */
+  margin-right: 0px;
 }
 /* DEFAULT select rejext btn style */
 
@@ -106,8 +112,68 @@ body {
 /* ON CLICK select rejext btn style */
 #select-rejex-btn:active {
   opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+/* DEFAULT select rejext btn style */
+
+/* ON CLICK select rejext btn style */
+#select-rejex-btn:active {
+  opacity: 1;
 }
 /* ON CLICK select rejext btn style */
+
+
+/* Styles for the dropdown content */
+.dropdown-content {
+    display: none; 
+    position: absolute;
+    background-color: #373746; 
+    min-width: 245px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1; 
+    border-radius: 10px;
+    overflow: hidden;
+    top: 100%; 
+    left: 0; 
+    margin-top: 5px; 
+    box-sizing: border-box;
+    width: 245px; 
+}
+
+/* Styles for the dropdown options (buttons inside the content) */
+.dropdown-option {
+    color: #FFF; 
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block; 
+    background-color: transparent; 
+    border: none; 
+    width: 100%; 
+    text-align: left; 
+    cursor: pointer;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 600; 
+    box-sizing: border-box;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+/* Hover and active styles for dropdown options */
+.dropdown-option:hover {
+    background-color: #FFD667; 
+    color: #1E1E23; 
+}
+
+.dropdown-option:active {
+    background-color: #ffc038; 
+    color: #1E1E23;
+}
+
+/* Class to show the dropdown content*/
+.dropdown-content.show {
+    display: block;
+}
+/* Class to show the dropdown content */
 
 /* --- visualization Layout  START --- */
 .main-content-wrapper {

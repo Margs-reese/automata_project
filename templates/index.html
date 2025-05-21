@@ -24,7 +24,21 @@
     <div class="header">
       <div class="header-title">AUTOMATA SIMULATOR</div>
       <div class="header-gap"></div>
-      <button id="select-rejex-btn">Select Regex</button>
+
+      <!-- Select Regex Dropdown -->
+      <div class="dropdown-container" id="select-rejex-dropdown-container">
+        <button class="dropdown-trigger" id="select-rejex-btn">Select A Regular Expression</button>
+        <div class="dropdown-content">
+          <button class="dropdown-option" id="regex-option1-ab">
+            (aa+bb)(aba+bab+bbb)(a+b)*(aa+bb)(aa+bb)*(ab*ab*a)(ab*ab*a)*(bbb+aaa)(a+b)*
+          </button>
+          <button class="dropdown-option" id="regex-option2-01">
+            (1*01*01*)(11+00)(10+01)*(1+0)(11+00)(1+0+11+00+101+111+000)(11+00)*(10*10*1)(11+00)*
+          </button>
+        </div>
+      </div>
+      <!-- Select Regex Dropdown -->
+       
     </div>
     <!-- HEADER DIV END -->
 
@@ -87,8 +101,7 @@
             <div class="regex-header">
               Regular Expression Used:
             </div>
-            <div class="regex-content">(1*01*01*)(11+00)(10+01)*(1+0)(11+00)(1+0+11+00+101+111+000)(11+00)*(10*10*1)(11+00)*
-            </div>
+            <div class="regex-content" id="regex-content"> </div>
           </div>           
           <!-- bottom-right section DIV tag END -->
         </div>
@@ -109,5 +122,6 @@
     <script src="../static/scripts/dfa-btn.js"></script>
     <script src="../static/scripts/cfg-btn.js"></script>
     <script src="../static/scripts/pda-btn.js"></script>
+    <script src="../static/scripts/select-regex-dropdown.js"></script>
   </body>
 </html>

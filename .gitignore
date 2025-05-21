@@ -12,7 +12,6 @@ backend/venv/
 */venv/
 */VENV/
 
-
 # Ignore Python cache files
 __pycache__/
 **/__pycache__/
