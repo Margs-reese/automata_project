@@ -1,65 +1,53 @@
-// Handles selection state and visualization display for DFA, CFG, PDA buttons
+// ../static/assets/01-cfg.png
 
 document.addEventListener('DOMContentLoaded', () => {
     const dfaButton = document.getElementById('dfa-btn');
     const cfgButton = document.getElementById('cfg-btn');
     const pdaButton = document.getElementById('pda-btn');
     const visualizationCanvas = document.querySelector('.visualization-canvas');
-    const regexContentDiv = document.getElementById('regex-content'); // To get current regex type
+    const regexContentDiv = document.getElementById('regex-content'); 
     const allVisualizationButtons = document.querySelectorAll('.selection-result-container button');
 
-    // Function to handle selecting a button (add/remove 'selected' class)
     function handleButtonClick(clickedButton) {
         allVisualizationButtons.forEach(btn => {
-            btn.classList.remove('selected'); // Remove 'selected' from all buttons
+            btn.classList.remove('selected'); 
         });
-        clickedButton.classList.add('selected'); // Add 'selected' to the clicked button
+        clickedButton.classList.add('selected'); 
     }
 
-    // Function to display the correct visualization based on type and selected regex
+
     function displayVisualization(type) {
-        const regexType = regexContentDiv.dataset.type; // 'alphabet' or 'binary'
+        const regexType = regexContentDiv.dataset.type; 
 
         // Clear previous visualization
         visualizationCanvas.innerHTML = '';
-        visualizationCanvas.style.backgroundColor = 'hsl(0, 0%, 100%)'; // Reset background if it was changed
 
         let imagePath = '';
-        let elementType = 'img'; // Default to img tag
+        let elementType = 'img';
 
         if (type === 'cfg') {
             if (regexType === 'alphabet') {
-                // --- Assign the correct file path for ab-cfg.png here ---
-                imagePath = '../static/images/ab-cfg.png';
+                imagePath = '../static/assets/ab-cfg.png';
             } else if (regexType === 'binary') {
-                 // --- Assign the correct file path for 01-cfg.png here ---
-                imagePath = '../static/images/01-cfg.png';
+                imagePath = '../static/assets/01-cfg.png';
             }
-             // Element type for PNGs is img
              elementType = 'img';
-             visualizationCanvas.style.backgroundColor = '#2A252F'; // Set darker background for CFG images as shown in example
         } else if (type === 'pda') {
              if (regexType === 'alphabet') {
-                // --- Assign the correct file path for ab-cfg.svg here ---
-                imagePath = '../static/images/ab-cfg.svg';
+                imagePath = '../static/assets/ab-pda.svg';
             } else if (regexType === 'binary') {
-                // --- Assign the correct file path for 01-cfg.svg here ---
-                imagePath = '../static/images/01-cfg.svg';
+                imagePath = '../static/assets/01-pda.svg';
             }
-            // Element type for SVGs displayed with <img> tag
             elementType = 'img';
-             visualizationCanvas.style.backgroundColor = 'hsl(0, 0%, 100%)'; // Keep white background for SVGs
         } else if (type === 'dfa') {
             console.log('DFA visualization not yet implemented.');
-            // For now, just clear the canvas and show placeholder or nothing
-            // Add DFA visualization logic here when ready
             const placeholder = document.createElement('div');
-            placeholder.textContent = 'DFA Visualization Here (Functionality Commented Out)';
-            placeholder.style.color = '#1E1E23';
+            placeholder.textContent = 'DFA Visualization Here';
+            placeholder.style.color = '#1E1E23'; 
             placeholder.style.fontFamily = 'Inter, sans-serif';
             placeholder.style.fontSize = '20px';
             visualizationCanvas.appendChild(placeholder);
-            visualizationCanvas.style.backgroundColor = 'hsl(0, 0%, 100%)'; // Keep white background for DFA
+             // Removed the line setting background color for DFA
         } else {
             console.error('Unknown visualization type:', type);
             return;
@@ -67,12 +55,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // If an image path was determined, create and append the element
         if (imagePath) {
-             // Create the image element
             const imgElement = document.createElement(elementType);
             imgElement.src = imagePath;
             imgElement.alt = `${type.toUpperCase()} Diagram for Regex Type: ${regexType}`; // Add alt text for accessibility
 
-            // Append the element to the canvas
             visualizationCanvas.appendChild(imgElement);
         }
     }
