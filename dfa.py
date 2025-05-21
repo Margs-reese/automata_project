@@ -74,10 +74,20 @@ def simulate_dfa(input_string, dfa_type='binary'):
 
     for symbol in input_string:
         if symbol not in config['valid_symbols']:
+            # Add transition to trap node for invalid symbol
+            trap_state = f'T_{current_state}_{symbol}'
+            path.append((current_state, trap_state, symbol))
+            visited.add(trap_state)
             break
+            
         next_state = config['transitions'].get(current_state, {}).get(symbol)
         if not next_state:
+            # Add transition to trap node for invalid transition
+            trap_state = f'T_{current_state}_{symbol}'
+            path.append((current_state, trap_state, symbol))
+            visited.add(trap_state)
             break
+            
         path.append((current_state, next_state, symbol))
         visited.add(next_state)
         current_state = next_state
@@ -92,7 +102,7 @@ def generate_graph(path, visited, dfa_type='binary'):
     dot.attr('node', shape='circle', style='filled', fontname='Arial')
     dot.attr('edge', fontname='Arial')
 
-    # Add nodes
+    # Add regular nodes
     for state in config['transitions']:
         attrs = {
             'style': 'filled',
@@ -111,6 +121,30 @@ def generate_graph(path, visited, dfa_type='binary'):
             attrs['penwidth'] = '2'
         dot.node(state, **attrs)
 
+    # Add trap nodes and their transitions
+    trap_nodes = set()
+    for state, transitions in config['transitions'].items():
+        for symbol, next_state in transitions.items():
+            if next_state is None:
+                trap_state = f'T_{state}_{symbol}'
+                trap_nodes.add(trap_state)
+                # Add trap node
+                dot.node(trap_state, 'T', 
+                    style='filled',
+                    fillcolor='#f8f9fa',
+                    fontsize='12',
+                    width='0.6',
+                    height='0.6',
+                    id=f'node_{trap_state}'
+                )
+                # Add transition to trap
+                dot.edge(state, trap_state, 
+                    label=symbol,
+                    fontsize='10',
+                    arrowsize='0.5',
+                    id=f'edge_{state}_{trap_state}_{symbol}'
+                )
+
     # Add start arrow
     dot.node('start', shape='point', width='0.1', height='0.1')
     dot.edge('start', config['start_state'], arrowhead='normal', arrowsize='0.5')
@@ -118,7 +152,7 @@ def generate_graph(path, visited, dfa_type='binary'):
     # Add transitions with IDs for animation
     for from_state, transitions in config['transitions'].items():
         for symbol, to_state in transitions.items():
-            if to_state:
+            if to_state:  # Only add transitions to non-trap states
                 is_in_path = any(p[0] == from_state and p[1] == to_state and p[2] == symbol for p in path)
                 attrs = {
                     'label': symbol,

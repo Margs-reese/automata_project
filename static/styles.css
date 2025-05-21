@@ -468,6 +468,11 @@ body {
     font-size: 14px;
     font-weight: 700; 
     box-sizing: border-box;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.result-transition {
+    transition: background-color 0.3s ease-in-out;
 }
 
 /* Won't show up unless toggled */

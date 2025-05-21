@@ -83,12 +83,26 @@ document.addEventListener("DOMContentLoaded", () => {
     validLabel.style.display = "none";
     invalidLabel.style.display = "none";
 
-    // Show the appropriate label
+    // Get the result container
+    const resultContainer = document.getElementById('result-container');
+    
+    // Add transition class
+    resultContainer.classList.add('result-transition');
+    
+    // Set the appropriate color
     if (isValid) {
+      resultContainer.style.backgroundColor = '#28a745';  // Green
       validLabel.style.display = "flex";
     } else {
+      resultContainer.style.backgroundColor = '#dc3545';  // Red
       invalidLabel.style.display = "flex";
     }
+
+    // Reset the color after 3 seconds
+    setTimeout(() => {
+      resultContainer.style.backgroundColor = '#373746';  // Original color
+      resultContainer.classList.remove('result-transition');
+    }, 3000);
   }
 
   // Function to display the graph
@@ -144,14 +158,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function animateStep() {
       if (currentStep >= animationData.path.length) {
-        // Check if the final state is an accept state
+        // Get the final state
         const lastStep = animationData.path[animationData.path.length - 1];
         const finalState = lastStep[1];
-        if (animationData.accept_states.includes(finalState)) {
-          const finalNode = document.getElementById(`node_${finalState}`);
-          if (finalNode) {
-            finalNode.classList.add("accept-state");
-          }
+        
+        // Highlight the final node in red
+        const finalNode = document.getElementById(`node_${finalState}`);
+        if (finalNode) {
+          finalNode.style.fill = '#dc3545';  // Red color
+          finalNode.style.stroke = '#bd2130';  // Darker red for border
+          finalNode.style.strokeWidth = '3px';
         }
         return;
       }
