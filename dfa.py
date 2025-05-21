@@ -53,14 +53,14 @@ alpha_nodes ={
 dfa_configs = {
     'binary': {
         'transitions': binary_nodes,
-        'start_state': 'q1',
-        'accept_states': {'q26', 'q27'},
+        'start_state': 'q0',
+        'accept_states': {'q21'},
         'valid_symbols': {'0', '1'}
     },
     'alphabet': {
         'transitions': alpha_nodes,
-        'start_state': 'q1',
-        'accept_states': {'q20'},
+        'start_state': 'q0',
+        'accept_states': {'q19'},
         'valid_symbols': {'a', 'b'}
     }
 }

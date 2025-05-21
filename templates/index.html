@@ -8,15 +8,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,800;1,14..32,800&display=swap" rel="stylesheet"/>
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,800;1,14..32,800&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Koulen regular -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Koulen&display=swap"
+      rel="stylesheet"
+    />
 
     <link rel="stylesheet" href="../static/styles.css" />
-    
+
     <title>Automata Simulator</title>
   </head>
   <body>
@@ -27,7 +32,9 @@
 
       <!-- Select Regex Dropdown -->
       <div class="dropdown-container" id="select-rejex-dropdown-container">
-        <button class="dropdown-trigger" id="select-rejex-btn">Select A Regular Expression</button>
+        <button class="dropdown-trigger" id="select-rejex-btn">
+          Select A Regular Expression
+        </button>
         <div class="dropdown-content">
           <button class="dropdown-option" id="regex-option1-ab">
             (aa+bb)(aba+bab+bbb)(a+b)*(aa+bb)(aa+bb)*(ab*ab*a)(ab*ab*a)*(bbb+aaa)(a+b)*
@@ -38,7 +45,6 @@
         </div>
       </div>
       <!-- Select Regex Dropdown -->
-       
     </div>
     <!-- HEADER DIV END -->
 
@@ -49,11 +55,7 @@
       <div class="visualization-bg">
         <!--container to display visualizations START -->
         <div class="visualization-canvas">
-          <p style="color: grey; font-family: inter">
-            diagram visualization container (temp)
-          </p>
-          <!-- temp -->
-          <!-- Add visualization diagram here -->
+          <!-- Graph will be displayed here -->
         </div>
         <!--container to display visualizations END -->
 
@@ -74,19 +76,22 @@
         <!-- text-input START -->
         <div class="txt-input-area">
           <!-- text area start -->
-          <textarea name="pattern-input" id="pattern-input" placeholder="Input a pattern here..."></textarea>
+          <textarea
+            name="pattern-input"
+            id="pattern-input"
+            placeholder="Input a pattern here..."
+          ></textarea>
           <!-- text area end -->
           <button id="pattern-validation-btn">Validate Pattern</button>
         </div>
         <!-- text-input END -->
-        
 
         <!-- DFA, CFG, PDA & RESULT START -->
         <div class="bottom-right-section">
           <div class="selection-result-container">
-              <button id="dfa-btn">DFA</button>
-              <button id="cfg-btn">CFG</button>
-              <button id="pda-btn">PDA</button>
+            <button id="dfa-btn">DFA</button>
+            <button id="cfg-btn">CFG</button>
+            <button id="pda-btn">PDA</button>
             <div id="result-container">
               Result:
               <!-- valid/invalid result toggle: pattern-validation.js -->
@@ -96,13 +101,11 @@
           </div>
           <!-- DFA, CFG, PDA & RESULT END -->
           <!-- text input | choose language | print result | pattern used SECTION  -->
-           
+
           <div class="regex-used-container">
-            <div class="regex-header">
-              Regular Expression Used:
-            </div>
-            <div class="regex-content" id="regex-content"> </div>
-          </div>           
+            <div class="regex-header">Regular Expression Used:</div>
+            <div class="regex-content" id="regex-content"></div>
+          </div>
           <!-- bottom-right section DIV tag END -->
         </div>
         <!-- bottom-right section DIV tag END -->
@@ -111,13 +114,12 @@
       </div>
       <!-- Bottom section DIV -->
 
-    <!-- MAIN CONTENT WRAPPER DIV TAG -->
+      <!-- MAIN CONTENT WRAPPER DIV TAG -->
     </div>
     <!-- MAIN CONTENT WRAPPER DIV TAG -->
 
     <!-- SCRIPT FILES -->
     <script src="../static/scripts/pattern-validation.js"></script>
-    <script src="../static/scripts/select-rejex-btn.js"></script>
     <script src="../static/scripts/simulation_btn.js"></script>
     <script src="../static/scripts/dfa-btn.js"></script>
     <script src="../static/scripts/cfg-btn.js"></script>

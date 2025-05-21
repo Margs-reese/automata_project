@@ -9,7 +9,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const dropdownContainer = document.getElementById('select-rejex-dropdown-container');
     const option1 = document.getElementById('regex-option1-ab');
     const option2 = document.getElementById('regex-option2-01');
-    const regexContentDiv = document.getElementById('regex-content'); // Get the regex content div
+    const regexContentDiv = document.getElementById('regex-content');
+
+    // Store the full regex patterns
+    const regexPatterns = {
+        'binary': '(1*01*01*)(11+00)(10+01)*(1+0)(11+00)(1+0+11+00+101+111+000)(11+00)*(10*10*1)(11+00)*',
+        'alphabet': '(aa+bb)(aba+bab+bbb)(a+b)*(aa+bb)(aa+bb)*(ab*ab*a)(ab*ab*a)*(bbb+aaa)(a+b)*'
+    };
+
+    // Set initial regex to binary (option 2)
+    if (dropdownTrigger && regexContentDiv) {
+        dropdownTrigger.textContent = 'Selected Regex: {1, 0}';
+        regexContentDiv.textContent = regexPatterns['binary'];
+        regexContentDiv.dataset.type = 'binary'; // Store the type in a data attribute
+    }
 
     // Function to close the dropdown
     function closeDropdown() {
@@ -22,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (dropdownTrigger && dropdownContent) {
         dropdownTrigger.addEventListener('click', function (event) {
             event.preventDefault();
-            event.stopPropagation(); // Prevent document click listener from firing immediately
+            event.stopPropagation();
             dropdownContent.classList.toggle('show');
         });
     }
@@ -35,25 +48,21 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Handle clicks on dropdown options
-    if (option1 && option2 && dropdownTrigger && regexContentDiv) { // Ensure regexContentDiv is found
+    if (option1 && option2 && dropdownTrigger && regexContentDiv) {
         option1.addEventListener('click', function () {
-            // Handle selection of option 1
             console.log('Regex option selected: {a, b}');
-            dropdownTrigger.textContent = 'Selected Regex: {a, b}'; // Update button text
-            // Update regex content div
-            regexContentDiv.textContent = '(aa+bb)(aba+bab+bbb)(a+b)*(aa+bb)(aa+bb)*(ab*ab*a)(ab*ab*a)*(bbb+aaa)(a+b)*';
-            closeDropdown(); // Close dropdown
-            // Add logic here to use the selected regex (e.g., update pattern-input, etc.)
+            dropdownTrigger.textContent = 'Selected Regex: {a, b}';
+            regexContentDiv.textContent = regexPatterns['alphabet'];
+            regexContentDiv.dataset.type = 'alphabet';
+            closeDropdown();
         });
 
         option2.addEventListener('click', function () {
-            // Handle selection of option 2
             console.log('Regex option selected: {1, 0}');
-            dropdownTrigger.textContent = 'Selected Regex: {1, 0}'; // Update button text
-            // Update regex content div
-            regexContentDiv.textContent = '(1*01*01*)(11+00)(10+01)*(1+0)(11+00)(1+0+11+00+101+111+000)(11+00)*(10*10*1)(11+00)*';
-            closeDropdown(); // Close dropdown
-            // Add logic here to use the selected regex (e.g., update pattern-input, etc.)
+            dropdownTrigger.textContent = 'Selected Regex: {1, 0}';
+            regexContentDiv.textContent = regexPatterns['binary'];
+            regexContentDiv.dataset.type = 'binary';
+            closeDropdown();
         });
     }
 });
