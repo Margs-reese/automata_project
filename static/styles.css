@@ -207,7 +207,7 @@ body {
 }
 
 .visualization-canvas {
-  background-color: hsla(240, 8%, 13%, 0.4);
+  background-color: hsl(0, 0%, 100%);
   /* width: 1111px; /* Remove fixed width */
   width: 100%; 
   height: 450px;
