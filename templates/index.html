@@ -8,8 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,800;1,14..32,800&display=swap"
-      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,800;1,14..32,800&display=swap" rel="stylesheet"
     />
 
     <!-- Koulen regular -->
@@ -52,22 +51,12 @@
     <div class="main-content-wrapper">
       <!-- MAIN CONTENT WRAPPER DIV TAG -->
 
-      <div class="visualization-bg">
+      <div class="visualization-bg"  id="visualization-canvas">
         <!--container to display visualizations START -->
-        <div class="visualization-canvas">
+        <div class="visualization-canvas" id="visualization-content">
           <!-- Graph will be displayed here -->
         </div>
         <!--container to display visualizations END -->
-
-        <!-- buttton run-visualization START -->
-        <button id="run-simulation-btn">
-          <div class="run-simulation-label">
-            <!-- Assuming run-icon.svg exists in the same directory -->
-            <img src="../static/assets/run-icon.svg" alt="Run Icon" />
-            <span>Run Simulation</span>
-          </div>
-        </button>
-        <!-- buttton run-visualization END -->
       </div>
       <!-- VISUAL BG END -->
 
@@ -117,13 +106,11 @@
       <!-- MAIN CONTENT WRAPPER DIV TAG -->
     </div>
     <!-- MAIN CONTENT WRAPPER DIV TAG -->
-
+     
     <!-- SCRIPT FILES -->
     <script src="../static/scripts/pattern-validation.js"></script>
     <script src="../static/scripts/simulation_btn.js"></script>
-    <script src="../static/scripts/dfa-btn.js"></script>
-    <script src="../static/scripts/cfg-btn.js"></script>
-    <script src="../static/scripts/pda-btn.js"></script>
+    <script src="../static/scripts/visualization-controls.js"></script>
     <script src="../static/scripts/select-regex-dropdown.js"></script>
   </body>
 </html>
