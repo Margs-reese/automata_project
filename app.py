@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify
+from dfa import simulate_dfa, generate_graph
 from flask_cors import CORS
-from dfa import is_string_valid
 
 app = Flask(__name__)
 CORS(app)
@@ -14,8 +14,8 @@ def validate_string():
     try:
         data = request.get_json()
         text = data.get('text')
-        response = is_string_valid(text)
-        return jsonify(response)
+        #response = is_string_valid(text)
+        return True #jsonify(response)
     except Exception as e:
         return jsonify({'error': f'Internal server error: {str(e)}'}), 500
 
