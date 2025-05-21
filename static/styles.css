@@ -142,30 +142,30 @@ body {
 
 /* Styles for the dropdown options (buttons inside the content) */
 .dropdown-option {
-    color: #FFF; /* White text */
-    padding: 12px 16px; /* Padding */
+    color: #FFF; 
+    padding: 12px 16px;
     text-decoration: none;
-    display: block; /* Make them stack */
-    background-color: transparent; /* No default button background */
-    border: none; /* No default button border */
-    width: 100%; /* Full width */
-    text-align: left; /* Align text to the left */
+    display: block; 
+    background-color: transparent; 
+    border: none; 
+    width: 100%; 
+    text-align: left; 
     cursor: pointer;
     font-family: "Inter", sans-serif;
     font-size: 14px;
-    font-weight: 600; /* Slightly less bold than trigger */
+    font-weight: 600; 
     box-sizing: border-box;
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
 /* Hover and active styles for dropdown options */
 .dropdown-option:hover {
-    background-color: #FFD667; /* Highlight on hover */
-    color: #1E1E23; /* Dark text on hover */
+    background-color: #FFD667; 
+    color: #1E1E23; 
 }
 
 .dropdown-option:active {
-    background-color: #ffc038; /* Slightly darker highlight when active */
+    background-color: #ffc038; 
     color: #1E1E23;
 }
 
