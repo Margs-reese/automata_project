@@ -56,7 +56,6 @@ def validate_string():
         logger.error(f"Error in validate_string: {str(e)}")
         return jsonify({'error': f'Internal server error: {str(e)}'}), 500
 
-# Remove or comment out this block for production deployment
-# if __name__ == '__main__':
-#     logger.info("Starting Flask application...")
-#     app.run(debug=True) #runs the flask application.
+if __name__ == '__main__':
+    logger.info("Starting Flask application...")
+    app.run() 
