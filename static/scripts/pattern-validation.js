@@ -134,13 +134,10 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       // MODIFIED: Use window.location.origin to point to the correct backend URL
-      const response = await fetch(
-        `https://automata-project.onrender.com/validateString`,
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
+      const response = await fetch(`${window.location.origin}/validateString`, {
+        method: "POST",
+        body: formData,
+      });
 
       const data = await response.json();
 
