@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const response = await validateString(inputText);
       console.log("Backend response:", response);
-      
+
       if (response.error) {
         // Display error message
         showError(response.error);
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      updateValidationUI(response.result === 'Accepted');
+      updateValidationUI(response.result === "Accepted");
       if (response.graph_svg) {
         displayGraph(response.graph_svg);
         // Start animation if animation data is available
@@ -48,10 +48,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // Function to show error message
   function showError(message) {
     // Create error notification if it doesn't exist
-    let errorNotification = document.getElementById('error-notification');
+    let errorNotification = document.getElementById("error-notification");
     if (!errorNotification) {
-      errorNotification = document.createElement('div');
-      errorNotification.id = 'error-notification';
+      errorNotification = document.createElement("div");
+      errorNotification.id = "error-notification";
       errorNotification.style.cssText = `
         position: fixed;
         top: 20px;
@@ -84,24 +84,24 @@ document.addEventListener("DOMContentLoaded", () => {
     invalidLabel.style.display = "none";
 
     // Get the result container
-    const resultContainer = document.getElementById('result-container');
-    
+    const resultContainer = document.getElementById("result-container");
+
     // Add transition class
-    resultContainer.classList.add('result-transition');
-    
+    resultContainer.classList.add("result-transition");
+
     // Set the appropriate color
     if (isValid) {
-      resultContainer.style.backgroundColor = '#28a745';  // Green
+      resultContainer.style.backgroundColor = "#28a745"; // Green
       validLabel.style.display = "flex";
     } else {
-      resultContainer.style.backgroundColor = '#dc3545';  // Red
+      resultContainer.style.backgroundColor = "#dc3545"; // Red
       invalidLabel.style.display = "flex";
     }
 
     // Reset the color after 3 seconds
     setTimeout(() => {
-      resultContainer.style.backgroundColor = '#373746';  // Original color
-      resultContainer.classList.remove('result-transition');
+      resultContainer.style.backgroundColor = "#373746"; // Original color
+      resultContainer.classList.remove("result-transition");
     }, 3000);
   }
 
@@ -110,11 +110,11 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Displaying graph:", svgContent);
     if (visualizationCanvas) {
       // Remove any existing graph
-      const existingGraph = visualizationCanvas.querySelector('svg');
+      const existingGraph = visualizationCanvas.querySelector("svg");
       if (existingGraph) {
         existingGraph.remove();
       }
-      
+
       // Insert the new graph
       visualizationCanvas.innerHTML = svgContent;
     }
@@ -124,26 +124,27 @@ document.addEventListener("DOMContentLoaded", () => {
   async function validateString(string) {
     try {
       const formData = new FormData();
-      formData.append('input_string', string);
-      const regexContent = document.getElementById('regex-content');
-      formData.append('regex', regexContent.dataset.type);
+      formData.append("input_string", string);
+      const regexContent = document.getElementById("regex-content");
+      formData.append("regex", regexContent.dataset.type);
 
       console.log("Sending to backend:", {
         input_string: string,
-        regex: regexContent.dataset.type
+        regex: regexContent.dataset.type,
       });
 
-      const response = await fetch("http://localhost:5000/validateString", {
+      // MODIFIED: Use window.location.origin to point to the correct backend URL
+      const response = await fetch(`${window.location.origin}/validateString`, {
         method: "POST",
-        body: formData
+        body: formData,
       });
-      
+
       const data = await response.json();
-      
+
       if (!response.ok) {
         throw new Error(data.error || `HTTP error! status: ${response.status}`);
       }
-      
+
       console.log("Received from backend:", data);
       return data;
     } catch (error) {
@@ -161,13 +162,13 @@ document.addEventListener("DOMContentLoaded", () => {
         // Get the final state
         const lastStep = animationData.path[animationData.path.length - 1];
         const finalState = lastStep[1];
-        
+
         // Highlight the final node in red
         const finalNode = document.getElementById(`node_${finalState}`);
         if (finalNode) {
-          finalNode.style.fill = '#dc3545';  // Red color
-          finalNode.style.stroke = '#bd2130';  // Darker red for border
-          finalNode.style.strokeWidth = '3px';
+          finalNode.style.fill = "#dc3545"; // Red color
+          finalNode.style.stroke = "#bd2130"; // Darker red for border
+          finalNode.style.strokeWidth = "3px";
         }
         return;
       }
