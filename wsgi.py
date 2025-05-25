@@ -1,7 +1,6 @@
 import sys
 
-# Add your project directory to the Python path
-path = '/home/yourusername/simulator'
+path = '/home/automata/automata_project'
 if path not in sys.path:
     sys.path.append(path)
 
